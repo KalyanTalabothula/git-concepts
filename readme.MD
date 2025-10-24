@@ -8,3 +8,6 @@
 # Before Starting a startup company, need to know few things
 * what are core values to follow
 * what are permissions to take from the government
+
+# people having a few doubts
+* person-1 having doubt of startup company
