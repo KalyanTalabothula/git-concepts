@@ -9,5 +9,5 @@
 * what are core values to follow
 * what are permissions to take from the government
 
-# People having a doubts
-* PERSON-1 is having a doubt
+# people having a few doubts
+* PERSON-1 and 2 having doubt of startup company
