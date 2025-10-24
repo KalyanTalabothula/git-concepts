@@ -10,4 +10,4 @@
 * what are permissions to take from the government
 
 # People having a doubts
-* person-1 is having a doubt
+* PERSON-1 is having a doubt
