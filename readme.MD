@@ -6,3 +6,5 @@
 * what problems will this company solve..?
 
 # Before Starting a startup company, need to know few things
+* what are core values to follow
+* what are permissions to take from the government
