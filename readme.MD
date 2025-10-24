@@ -10,4 +10,6 @@
 * what are permissions to take from the government
 
 # people having a few doubts
-* person-1 having doubt of startup company
+* PERSON-1 and 2 having doubt of startup company
+* okay
+* okayy
