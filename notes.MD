@@ -85,6 +85,86 @@ Perfect for **learning, revising, and interview prep** ✅
 
 ---
 
+
+| 🧩 **Command**                         | 🎯 **Purpose**                        | ⚙️ **What It Does**                                                  | 💡 **When to Use**                                  | 🧱 **Commits Lost?**   | 🧍‍♂️ **Affects main branch?** | 🧾 **Example**                           |
+| -------------------------------------- | ------------------------------------- | -------------------------------------------------------------------- | --------------------------------------------------- | ---------------------- | ------------------------------ | ---------------------------------------- |
+| `git branch -d branch_name`            | Safe delete local branch              | Deletes branch **only if merged** with main (protects unmerged work) | After merging branch work into main                 | ❌ No                   | ❌ No                           | `git branch -d feature/login`            |
+| `git branch -D branch_name`            | Force delete local branch             | Deletes branch **even if not merged** (no safety check)              | When you’re sure you don’t need that branch anymore | ⚠️ Yes (if not merged) | ❌ No                           | `git branch -D test-feature`             |
+| `git push origin --delete branch_name` | Delete remote branch (GitHub/GitLab)  | Removes the branch from the remote repository                        | To clean up remote after merge                      | ❌ No                   | ❌ No                           | `git push origin --delete feature/login` |
+| `git push origin :branch_name`         | Old syntax for deleting remote branch | Same as above                                                        | Rarely used now                                     | ❌ No                   | ❌ No                           | `git push origin :feature/login`         |
+| `git branch`                           | List local branches                   | Shows all branches in your local repo                                | To check before/after delete                        | ❌ No                   | ❌ No                           | `git branch`                             |
+| `git branch -r`                        | List remote branches                  | Shows all branches on remote (origin)                                | To verify remote deletion                           | ❌ No                   | ❌ No                           | `git branch -r`                          |
+| `git checkout branch_name`             | Switch branch                         | Moves you to another branch (can’t delete the one you’re on)         | Before deleting current branch                      | ❌ No                   | ❌ No                           | `git checkout main`                      |
+
+
+| 💬 **Question**             | 🧠 **Answer**                                               |
+| --------------------------- | ----------------------------------------------------------- |
+| What does `-d` do?          | Safely deletes branch only if merged.                       |
+| What does `-D` do?          | Force deletes branch even if not merged — can lose commits. |
+| Does it delete main branch? | ❌ Never. It only deletes the branch you name.               |
+| Does it delete commits?     | ❌ No (if merged). ⚠️ Yes (if not merged).                   |
+| Does it create a commit?    | ❌ No. It only removes the branch pointer.                   |
+| How to check if deleted?    | Run `git branch` (local) or `git branch -r` (remote).       |
+
+
+
+🧠 Simple way to remember:
+
+🟢 -d = “Delete safely after merging.”
+🔴 -D = “Delete no matter what — even if not merged.”
+
+
+🧩 Case 1 — Safe Delete (git branch -d feature)
+
+✅ Only deletes if merged into main.
+No commits lost.
+
+Before:
+           (feature)
+               │
+A --- B --- C --- D --- E   ← main
+              \
+               D --- E       ← feature (merged)
+
+Command:
+git checkout main
+git branch -d feature
+
+After:
+A --- B --- C --- D --- E   ← main
+(feature deleted)
+✅ All commits safe in main
+
+
+
+⚡ Case 2 — Force Delete (git branch -D feature)
+
+⚠️ Deletes even if not merged.
+Unmerged commits can be lost.
+
+Before:
+           (feature)
+               │
+A --- B --- C   ← main
+        \
+         D --- E   ← feature (NOT merged)
+
+Command:
+git checkout main
+git branch -D feature
+
+After:
+A --- B --- C   ← main
+(feature deleted)
+💥 Commits D and E are not reachable (may be lost)
+
+
+🧠 Simple way to remember:
+
+Branch deletion = pointer removed, not a commit change.
+-d = safe pointer removal --> Still no new commit is created.
+-D = forced pointer removal  --> Still no new commit is created.
+
 ### 🏁 Final Note:
 > 📘 **Tip for Interviews:**  
 > Always explain **what happens internally** (like “moves HEAD pointer” or “creates new commit”) — it shows strong Git knowledge.
