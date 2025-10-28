@@ -88,9 +88,3 @@ Perfect for **learning, revising, and interview prep** ✅
 ### 🏁 Final Note:
 > 📘 **Tip for Interviews:**  
 > Always explain **what happens internally** (like “moves HEAD pointer” or “creates new commit”) — it shows strong Git knowledge.
-
----
-
-⭐ **Author:** [Kalyan Talabothula]  
-🗓️ **Updated:** October 2025  
-🧠 **Use:** Study | Revise | Interview | Real Projects
